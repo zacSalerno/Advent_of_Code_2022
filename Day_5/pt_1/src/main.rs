@@ -5,7 +5,7 @@ fn main() {
 
     let contents: Vec<&str> = contents.split("\n\r").collect();
 
-    let crates: [Vec<&str>; 9] = [vec!["D", "L", "J", "R", "V", "G", "F"], vec!["T", "P", "M", "B", "V", "H", "J", "S"], vec!["V", "H", "M", "F", "D", "G", "P", "C"], vec!["M", "D", "P", "N", "F"], vec!["J", "L", "H", "N", "F"], vec!["N", "F", "V", "Q", "D", "G", "T", "Z"], vec!["F", "D", "B", "L"], vec!["M", "J", "B", "S", "V", "D", "N"], vec!["G", "L", "D"]];
+    let mut crates: [Vec<&str>; 9] = [vec!["D", "L", "J", "R", "V", "G", "F"], vec!["T", "P", "M", "B", "V", "H", "J", "S"], vec!["V", "H", "M", "F", "D", "G", "P", "C"], vec!["M", "D", "P", "N", "G", "Q"], vec!["J", "L", "H", "N", "F"], vec!["N", "F", "V", "Q", "D", "G", "T", "Z"], vec!["F", "D", "B", "L"], vec!["M", "J", "B", "S", "V", "D", "N"], vec!["G", "L", "D"]];
     let mut instructions: Vec<&str> = contents[1].split('\n').collect();
 
     instructions.remove(0);
@@ -27,19 +27,16 @@ fn main() {
 
         let amount_to_move = computed_instructions.0;
         let move_from = computed_instructions.1;
-        // let move_to = computed_instructions.2;
+        let move_to = computed_instructions.2;
         
         for _ in 1..=amount_to_move {
-            // let temp = crates[move_from - 1][crates[move_from - 1].len() - 1];
+            let temp = crates[move_from - 1][crates[move_from - 1].len() - 1];
             
-            println!("{}", crates[move_from - 1].len());
-
-            // if crates[move_from - 1].len() != 0{
-            //     crates[move_from - 1].remove(crates[move_from - 1].len() - 1);
-            // }
             
-
-            // crates[move_to - 1].push(temp);
+            crates[move_from - 1].remove(crates[move_from - 1].len() - 1);
+            
+            crates[move_to - 1].push(temp);
+            println!("{:?}", crates);
         }
 
          
