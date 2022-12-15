@@ -5,19 +5,15 @@ fn main() {
 
     let mut count: usize = 0;
 
-    let mut temp: Vec<u8> = Vec::new();
+    let amount_of_char: usize = 14;
 
-    println!("{:?}\n", contents.as_bytes());
+    let mut temp: Vec<u8> = Vec::new();
 
     for _ in 1..=contents.as_bytes().len() - 3{
 
-        for i in 0..14{
+        for i in 0..amount_of_char{
             temp.push(contents.as_bytes()[count + i])
         }
-
-        // println!("{:?}", temp);
-
-        // let temp: [u8; 4] = [contents.as_bytes()[count], contents.as_bytes()[count + 1], contents.as_bytes()[count + 2], contents.as_bytes()[count + 3]];
 
         if !(1..temp.len()).any(|i| temp[i..].contains(&temp[i - 1])){
             break;
@@ -28,6 +24,6 @@ fn main() {
         count += 1;
     }
     
-    println!("{}", count + 14);
+    println!("{}", count + amount_of_char);
 
 }
